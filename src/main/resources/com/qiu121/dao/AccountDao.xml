@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qiu121.dao.AccountDao">
+
+
+    <select id="selectByAccount" resultType="Account">
+        SELECT `id`
+        FROM `login`.`account`
+        WHERE `user` = #{user}
+          AND `password` = SHA(#{password})
+    </select>
+</mapper>

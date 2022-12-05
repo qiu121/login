@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!--
+        1.配置控制台的日志输入
+    -->
+    <!--CONSOLE ：表示当前的日志信息是可以输出到控制台的。-->
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!--1.1配置每行日志level、时间、msg等的先后顺序以及对应的颜色-->
+            <!--官方链接：https://logback.qos.ch/manual/layouts.html-->
+            <pattern>[%level] %blue(%d{HH:mm:ss.SSS}) %cyan([%thread]) %boldGreen(%logger{15}) - %msg %n</pattern>
+        </encoder>
+    </appender>
+
+    <!--
+        2.配置日志输入的级别
+    -->
+    <!--
+      level:用来设置打印级别，大小写无关：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF
+     ， 默认debug
+      <root>可以包含零个或多个<appender-ref>元素，标识这个输出位置将会被本日志级别控制。
+      -->
+    <!-- 2.1 设置一个包或具体的某一个类的日志打印级别-->
+    <logger name="com.qiu121" level="DEBUG" additivity="false">
+        <appender-ref ref="Console"/>
+    </logger>
+
+    <!--2.2 设置root下总的日志打印级别-->
+    <root level="DEBUG">
+        <appender-ref ref="Console"/>
+    </root>
+</configuration>
